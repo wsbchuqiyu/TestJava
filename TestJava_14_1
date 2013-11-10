@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+/*	@author wsbchuqiyu
+ * 
+ *  This program is about the calculation for two arrays.
+ *  
+ *  The first part is to define how big the two arrays are.
+ *  
+ *  Second, input the numbers for the first array called A.
+ *  
+ *  Third, input the add number for the calculation and the program will do the calculation for the other array called B.
+ *  
+ *  Finally, output the result on the screen.
+ */
+public class TestJava4_14_1 {
+
+	public static void main(String[] args) {
+		int A[][]= new int[2][5];	// define the array A
+		int B[][]= new int[2][5];	// define the array B
+		A = input_a(A);
+		B = add_num(A);				// call the function add_num() and put the calculation result into array B 
+
+		for(int i=0;i<B.length;i++)		// print out the result for array B
+		{
+			for(int j=0;j<B[i].length;j++)
+			{
+				System.out.print(B[i][j]+" ");
+			}
+			System.out.print("\n");
+		}
+	}
+	public static int[][] input_a(int arr[][])		// input numbers for the first array
+	{
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=0;j<arr[i].length;j++)
+			{
+				System.out.println("Input number for A["+i+"]["+j+"] ");
+				Scanner s = new Scanner(System.in);	
+				int InputNum = s.nextInt();
+				arr[i][j] = InputNum;			
+				System.out.println("A["+i+"]["+j+"] = "+arr[i][j]+" ");
+			}
+		}
+		return arr;
+	}
+	public static int[][] add_num(int arr[][])
+	{
+		System.out.println("Please input an add number: ");
+		Scanner s = new Scanner(System.in);	
+		int AddNum = s.nextInt();
+		for(int i=0;i<arr.length;i++)
+		{
+			for(int j=0;j<arr[i].length;j++)
+				arr[i][j]+=AddNum;
+		}
+		return arr;
+	}
+
+}
